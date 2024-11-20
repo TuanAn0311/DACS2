@@ -1,0 +1,95 @@
+#background-image-div {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  url("../img/trangchu.png");
+  background-size: cover; /*không giới hạn*/
+  background-position: center;
+  height: 700px;
+  color: white;
+  font-size: large;
+}
+#register {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#register input:not([type="radio"]) {
+  border: none;
+  border-radius: 4px;
+  height: 50px;
+  width: 60%;
+  padding: 10px;
+}
+
+#register i {
+  font-size: 20px;
+}
+#register .icon {
+  padding-top: 10px;
+  height: 50px;
+}
+#register .logo {
+  height: auto;
+  width: 120px;
+  margin-bottom: 10px;
+}
+#register .wel {
+  display: inline-block;
+  margin-top: 15px;
+}
+#register b {
+  font-size: 25px;
+  margin-right: -20px;
+}
+#register form {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#register .bor {
+  border: 1px solid gray;
+  text-align: left;
+  padding-left: 5px;
+  padding-top: 5px;
+  height: 80px;
+  width: 140px;
+  cursor: pointer;
+}
+
+#register button {
+  border: none;
+  border-radius: 4px;
+  height: 50px;
+  width: 300px;
+  padding: 10px;
+  background-color: yellow;
+}
+#register button:hover {
+  transition: 0.3s;
+}
+#register button:active {
+  transform: scale(0.95);
+}
+#register a {
+  text-decoration: none;
+  color: yellow;
+}
+#register a:hover {
+  color: greenyellow;
+}
+#register .tb {
+  color: red;
+  font-size: 15px;
+  margin-bottom: 10px;
+  visibility: hidden;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 20%; /*khoảng cách đối với lề phải*/
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: white;
+}

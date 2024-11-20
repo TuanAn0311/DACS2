@@ -1,0 +1,71 @@
+#post .line {
+  height: 50px;
+  border-left: 5px solid orange;
+  margin: 0 20px;
+  border-radius: 4px 4px;
+}
+.txt {
+  margin-left: -90px;
+  margin-top: -3px;
+}
+#post .dropdown {
+  text-align: right;
+  margin-top: 10px;
+}
+#post .dropdown-toggle {
+  border: none;
+  background-color: white;
+  color: black;
+}
+.truncate-multiline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-height: 1.5;
+  height: 3em;
+  max-height: 3em;
+}
+
+#post a {
+  text-decoration: none;
+  color: black;
+}
+hr {
+  height: 3px;
+  background-color: black;
+}
+.card {
+  height: 500px;
+}
+.avt {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#post h6 {
+  margin-top: 5px;
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 283px;
+  background-color: #f0f0f0;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.color-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 0, 0, 0.5);
+  z-index: -1;
+}
