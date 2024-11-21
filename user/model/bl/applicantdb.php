@@ -28,22 +28,27 @@ class ApplicantDatabase extends Database{
         $params = [
             "id" => (int)$id,
         ];
-        $result = self::db_get_row($sql, $params);
+        $result = self::db_get_list_condition($sql, $params);
+        $Applis = [];
         if ($result){
-            $appli = new Applicant();
-            $appli->setAppliId($result['ma_ung_tuyen']);
-            $appli->setFreeId($result['ma_nguoi_tim_viec']);
-            $appli->setJobpliId($result['ma_cong_viec']);
-            $appli->setState($result['trang_thai_ung_tuyen']);
-            $appli->setAppliDate($result['ngay_ung_tuyen']);
-            $appli->setDesc($result['mo_ta']);
-            $appli->setPrice($result['chao_gia']);
-            $appli->setNumFinishDay($result['so_ngay_hoan_thanh']);
+            foreach ($result as $row) {
+                $appli = new Applicant();
+                $appli->setAppliId($row['ma_ung_tuyen']);
+                $appli->setFreeId($row['ma_nguoi_tim_viec']);
+                $appli->setJobpliId($row['ma_cong_viec']);
+                $appli->setState($row['trang_thai_ung_tuyen']);
+                $appli->setAppliDate($row['ngay_ung_tuyen']);
+                $appli->setDesc($row['mo_ta']);
+                $appli->setPrice($row['chao_gia']);
+                $appli->setNumFinishDay($row['so_ngay_hoan_thanh']);
+                $Applis[]=$appli;
                 
-            return $appli;
+                
+            }
         }else {
             return [];
         }
+        return $Applis;
     }
 }
 ?>

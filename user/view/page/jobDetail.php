@@ -18,7 +18,6 @@
     $freedb = new FreelancerDatabase();
     $user = new User();
     $userdb = new UserDatabase();
-    $appli = new Applicant();
     $applidb = new ApplicantDatabase();
     
     $com = $comdb->getById($data['macv']);
@@ -94,16 +93,10 @@
         </div>
         <div class="row">
             <?php
-                // while ($DanhSachMaNTV = mysqli_fetch_array($data["danhSachMaNguoiTimViec"])) {
-                //     $sql = "SELECT * FROM nguoi_tim_viec WHERE ma_nguoi_tim_viec = ". $DanhSachMaNTV['ma_nguoi_tim_viec'];
-                //     $query = mysqli_query($con, $sql);
-                //     $nguoiTV = mysqli_fetch_array($query);
-
-                //     $sql2 ="SELECT * FROM ung_tuyen WHERE ma_cong_viec = ". $CV['ma_cong_viec'] ." and ma_nguoi_tim_viec=" . $DanhSachMaNTV['ma_nguoi_tim_viec'];
-                //     $ung_tuyen = mysqli_fetch_array(mysqli_query($con,$sql2));
-                $listapp = $applidb->display_by_idJob($job->getMaCongViec());
-                foreach ($listapp as $appli) {
-                    $free = $freedb->getById($listapp->getFreeID());
+                
+                $list = $applidb->display_by_idJob($job->getMaCongViec());
+                foreach ($list as $appli) {
+                    $free = $freedb->getById($appli->getFreeID());
                 
             ?>
             <div class="container" id="danh_sach_chao_gia">
@@ -114,22 +107,22 @@
                     </div>
                     <div class="col-3">
                         <span class="box_gia_va_thoi_gian">
-                            <span class="gia_chao"><?php echo number_format($listapp->getPrice(), 0, ',', '.') ?> VNĐ</span>
+                            <span class="gia_chao"><?php echo number_format($appli->getPrice(), 0, ',', '.') ?> VNĐ</span>
                             <span>&#160 / &#160</span>
-                            <span class="so_ngay_hoan_thanh"><?php echo $listapp->getNumFinishDay() ?> ngày</span>
+                            <span class="so_ngay_hoan_thanh"><?php echo $appli->getNumFinishDay() ?> ngày</span>
                         </span>
                     </div>
                 </div>
                 <div class="row" id="mo_ta_chao_gia">
                     <div class="p-3">
-                        <?php echo $listapp->getDesc() ?>
+                        <?php echo $appli->getDesc() ?>
                     </div>
                 </div>
 
                 <div class="row" id="ngay_gio_chao_gia">
                     <div class="col-10"></div>
                     <div class="col-2">
-                        <span class="bi bi-alarm"><?php echo $listapp->getAppliDate() ?></span>                        
+                        <span class="bi bi-alarm"><?php echo $appli->getAppliDate() ?></span>                        
                     </div>
                 </div>
             </div>

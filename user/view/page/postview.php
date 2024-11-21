@@ -56,9 +56,9 @@
                                 $page = 1;
                             }
                             $offset = ($page-1)*$limit;
-                            $postdb = new postdb();
+                            $postdb = new PostDatabase();
                             $freelancer = new Freelancer();
-                            $freedb = new freelancerdb();
+                            $freedb = new FreelancerDatabase();
                             $totalRows = $postdb->countRow($condition);
                             $order = Helper::input_value('order');
                             switch ($order){

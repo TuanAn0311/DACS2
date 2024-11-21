@@ -21,7 +21,7 @@
                         $freelancer = new Freelancer();
                         $freedb = new FreelancerDatabase();
                         $spe = new Specialized();
-                        $spedb = new Specializeddb();
+                        $spedb = new SpecializedDatabase();
                         if (!empty($id)){
                             $post = $postdb->getById($id);
                             
