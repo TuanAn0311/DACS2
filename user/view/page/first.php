@@ -1,3 +1,29 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $ma_nha_tuyen_dung = $_SESSION['ma_nha_tuyen_dung']   ;
+    $tieu_de_cong_viec = $_POST['tieu_de_cong_viec'];
+    $mo_ta_cong_viec = $_POST['mo_ta_cong_viec'];
+    $muc_luong = $_POST['muc_luong'];
+    $ma_chuyen_nganh = $_POST['ma_chuyen_nganh'];
+    $trang_thai = 'Đang tuyển';
+    $ky_nang_bat_buoc = $_POST['ky_nang_bat_buoc'];
+
+    $job = new Job();
+    $job->setMaNhaTuyenDung($ma_nha_tuyen_dung);
+    $job->setTieuDeCongViec($tieu_de_cong_viec);
+    $job->setMoTaCongViec($mo_ta_cong_viec);
+    $job->setMucLuong($muc_luong);
+    $job->setMaChuyenNganh($ma_chuyen_nganh);
+    $job->setTrangThai($trang_thai);
+    $job->setKyNangBatBuoc($ky_nang_bat_buoc);
+
+    $jobdb = new JobDatabase();
+    $jobdb->addJob($job);
+    echo "<script>alert(Đã Thêm Công Việc)</script>";
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +57,10 @@
     </div>
 <?php
 $con = mysqli_connect("localhost","root","","dacs2");
-$_SESSION['ma_nha_tuyen_dung'] = 1;// lấy khi login   
+
 //////////////
     if (isset($_SESSION['message'])) {
-        echo  "<script>alert('".$_SESSION['message']."')</script>";
+        echo  "<script>alert('".$_SESSION['message']."')</>";
         unset($_SESSION['message']);
     }
 
@@ -42,7 +68,7 @@ $_SESSION['ma_nha_tuyen_dung'] = 1;// lấy khi login
     <div class="overlay" id="formOverlay">
         <div class="form-container">
             
-            <form action="http://localhost/live/cong_viec/them_cong_viec" method="POST">
+            <form action="#" method="POST">
                 <span class="close-button" onclick="closeForm()">×</span>
                 <h2>Nhập thông tin bài đăng</h2>
                 <input type="hidden" name="ma_nha_tuyen_dung" Value="1" required>

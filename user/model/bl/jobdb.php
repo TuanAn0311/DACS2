@@ -5,6 +5,32 @@ class JobDatabase extends Database{
     private $ma_cong_viec, $ma_nha_tuyen_dung, $tieu_de_cong_viec, $mo_ta_cong_viec, $muc_luong, $ngay_tao, $ma_chuyen_nganh, $trang_thai, $ky_nang_bat_buoc;
     
     
+    public function GET_CVLimitByCompanyId($id){
+        $id = (int)$id;
+        $sql = "SELECT * FROM cong_viec WHERE ma_nha_tuyen_dung = $id";
+        $Jobs = [];
+        $result = self::db_get_list($sql);
+        if ($result) { 
+            foreach ($result as $row) {
+                $Job = new Job();
+                $Job->setMaCongViec($row['ma_cong_viec']);
+                $Job->setMaNhaTuyenDung($row['ma_nha_tuyen_dung']);
+                $Job->setTieuDeCongViec($row['tieu_de_cong_viec']);
+                $Job->setMoTaCongViec($row['mo_ta_cong_viec']);
+                $Job->setMucLuong($row['muc_luong']);
+                $Job->setNgayTao($row['ngay_tao']);
+                $Job->setMaChuyenNganh($row['ma_chuyen_nganh']);
+                $Job->setTrangThai($row['trang_thai']);
+                $Job->setKyNangBatBuoc($row['ky_nang_bat_buoc']);
+                $Jobs[] = $Job;
+            }
+        } 
+        else {
+            return []; 
+        }
+        return $Jobs;
+    }
+    
     function countRow(){
         $sql = "SELECT COUNT(*) as total FROM cong_viec";
         
@@ -95,6 +121,47 @@ class JobDatabase extends Database{
         }
     }
 
-      
+    function addJob($job) {
+        $sql = "INSERT INTO cong_viec (
+                    ma_nha_tuyen_dung, 
+                    tieu_de_cong_viec, 
+                    mo_ta_cong_viec, 
+                    muc_luong, 
+                    ngay_tao, 
+                    ma_chuyen_nganh, 
+                    trang_thai, 
+                    ky_nang_bat_buoc
+                ) VALUES (
+                    :ma_nha_tuyen_dung, 
+                    :tieu_de_cong_viec, 
+                    :mo_ta_cong_viec, 
+                    :muc_luong, 
+                    :ngay_tao, 
+                    :ma_chuyen_nganh, 
+                    :trang_thai, 
+                    :ky_nang_bat_buoc
+                )";
+    
+        $ngay_tao = date("Y-m-d H:i:s");
+    
+        $params = [
+            "ma_nha_tuyen_dung" => $job->getMaNhaTuyenDung(),
+            "tieu_de_cong_viec" => $job->getTieuDeCongViec(),
+            "mo_ta_cong_viec" => $job->getMoTaCongViec(),
+            "muc_luong" => $job->getMucLuong(),
+            "ngay_tao" => $ngay_tao,
+            "ma_chuyen_nganh" => $job->getMaChuyenNganh(),
+            "trang_thai" => $job->getTrangThai(),
+            "ky_nang_bat_buoc" => $job->getKyNangBatBuoc(),
+        ];
+    
+        if (self::db_execute($sql, $params)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+         
 }
 ?>

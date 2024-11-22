@@ -3,7 +3,7 @@
 
         function them_cong_viec() {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $ma_nha_tuyen_dung = $_POST['ma_nha_tuyen_dung'];
+                $ma_nha_tuyen_dung = $_SESSION['ma_nha_tuyen_dung']   ;
                 $tieu_de_cong_viec = $_POST['tieu_de_cong_viec'];
                 $mo_ta_cong_viec = $_POST['mo_ta_cong_viec'];
                 $muc_luong = $_POST['muc_luong'];
@@ -13,8 +13,8 @@
 
                 echo "hello";
 
-                $input_CV = $this->model("input_cong_viec");
-                $input_CV->excute_them_cong_viec(
+                $jobdb = new JobDatabase();
+                $jobdb->addJob(
                     $ma_nha_tuyen_dung,
                     $tieu_de_cong_viec,
                     $mo_ta_cong_viec,
@@ -24,7 +24,7 @@
                     $ky_nang_bat_buoc
                 );
 
-                header('Location: /live/Home/trang_chu');
+                header('Location: http://localhost/DACS2/Home/action/home');
                 exit();
             } else {
                 echo "không gửi được!";

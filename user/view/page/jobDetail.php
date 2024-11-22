@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="<?php echo Helper::get_url('user/public/css/jobDetail.css') ?>">
-
+    <link rel="stylesheet" href="<?php echo Helper::get_url('user/public/js/jobDetail.js') ?>">
     <style>
         /* Styles for the form overlay */
         
@@ -142,7 +142,41 @@
             ?>
         </div>
     </div>
+    <div class="overlay" id="formOverlay">
+        <div class="form-container">
+            <span class="close-button" onclick="closeForm()">×</span>
+            <h2>Chào Giá Dự Án</h2>
+            <form id="chaoGiaForm" action="<?php echo Helper::get_url("user/model/bl/xuLyUngTuyen.php") ?>" method="POST">
+                <div class="container">
+                   <div class="row">
+                        <div class="col-6"><label for="proposalAmount">Giá chào</label></div>
+                        <div class="col-6"><input type="number" id="proposalAmount" name="GiaChao" required><br></div>
+                   </div>
+                </div>
+                <div class="container">
+                   <div class="row">
+                        <div class="col-6"><label for="completionTime">Thời gian hoàn thành (ngày)</label></div>
+                        <div class="col-6"><input type="number" id="completionTime" name="soNgayHoanThanh" required><br></div>     
+                   </div>
+                </div>
 
+                <div class="container">
+                   <div class="row">
+                        <div class="col-4"><label for="proposalMessage">Lời nhắn</label><br></div>
+                        <div class="col-8"><textarea class="p-4" id="proposalMessage" name="moTa" rows="4" required></textarea><br></div>     
+                   </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-5"><button style="width:100%" type="submit">Gửi chào giá</button></div>
+                        <div class="col-3"></div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </body>
 <script src="<?php echo Helper::get_url("user/public/js/jobDetail.js") ?>"></script>

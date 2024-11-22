@@ -49,11 +49,12 @@
                 <?php
                 if (!empty($_SESSION['ma_nguoi_dung'])) {
                     $id = $_SESSION['ma_nguoi_dung'];
-                    if ($_SESSION['vai_tro'] === 'quan_ly') {
+                    if ($_SESSION['vai_tro'] === 'nha_tuyen_dung') {
                         $com = new Company();
                         $comdb = new CompanyDatabase();
                         $com = $comdb->getByIdUser($id);
                         $_SESSION['id_profile'] = $com->getComId();
+                        $_SESSION['ma_nha_tuyen_dung'] = $_SESSION['id_profile'];
                         $anh = $com->getImg();
                     } else {
                         $free = new Freelancer();

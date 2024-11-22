@@ -23,14 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: http://localhost/DACS2/Home/jobDetail/$maCV");
     exit;
 
-    // $result = $applidb->addAppli($ma_nguoi_tim_viec,$maCV,$trangThai,$ngayUT,$moTa,$giaChao,$soNgayHoanThanh);
-    // if ($result) {
-    //     $_SESSION['massge'] = 'Chào giá đã được tải lên';
-    //     header("Location: http://localhost/live/Home/jobDetail/$maCV");
-    //     exit;
-    // } else {
-    //     echo "có lỗi xảy ra";
-    // }
 }
 
 class xuLy_UT{

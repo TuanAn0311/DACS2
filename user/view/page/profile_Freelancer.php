@@ -19,8 +19,8 @@
     $id = $_SESSION['id_profile'];
 
     if (!empty($id)){
-        $freelancer = $freedb->getById($id);
-        $user = $userdb->getById($freelancer->getUserId());
+      $freelancer = $freedb->getById($id);
+      $user = $userdb->getById($freelancer->getUserId());
       
       $datetime = $user->getCreateDate();
 
