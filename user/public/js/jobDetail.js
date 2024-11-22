@@ -12,11 +12,9 @@ document
   .getElementById("chaoGiaForm")
   .addEventListener("submit", function (event) {
     // Collect form data and handle submission here
-    alert("Chào giá đã được gửi!");
-
     closeForm();
   });
-
+////////////////////////////////Phân Trang///////////////////////////////////////////////
 let currentPage = 1;
 let pageNumber = parseInt(
   document.getElementById("soTrang").textContent.trim()

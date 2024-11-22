@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['error'] = 'Tên đăng nhập hoặc mật khẩu không được chứa khoảng trắng.';
         header("Location: http://localhost/DACS2/Home/Login");
         exit();
-    } else {
+    } else { 
         // Truy vấn kiểm tra thông tin đăng nhập trong cơ sở dữ liệu
         $sql = "SELECT * FROM nguoi_dung WHERE ten_dang_nhap = ?";
         $stmt = mysqli_prepare($con, $sql);
@@ -28,9 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['message'] = 'Đăng nhập thành công';
                 $_SESSION['ma_nguoi_dung'] = $user['ma_nguoi_dung'];
                 $_SESSION['ten_dang_nhap'] = $user['ten_dang_nhap'];  // Lưu tên đăng nhập
+                $_SESSION['vai_tro'] = $user['vai_tro'];  // Lưu tên đăng nhập
+                
                 header("Location: http://localhost/DACS2/Home/action/home");
                 exit();
-            } else {
+            } else {  
                 // Nếu mật khẩu không đúng
                 $_SESSION['error'] = 'Tên đăng nhập hoặc mật khẩu không đúng.';
                 header("Location: http://localhost/DACS2/Home/Login");

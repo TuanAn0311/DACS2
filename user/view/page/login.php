@@ -62,5 +62,5 @@
         </div>
     </div>
 </body>
-<script src="/live/mvc/views/resource/js/login.js"></script>
+<script src="<?php echo Helper::get_url("user/public/js/login.js")?>"></script>
 </html>

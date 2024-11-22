@@ -16,11 +16,12 @@
     $post = new Post();
     $postdb = new PostDatabase();
 
-    // $id = Helper::input_value('id');
-    $id = 1;
+    $id = $_SESSION['id_profile'];
+
     if (!empty($id)){
-      $freelancer = $freedb->getById($id);
-      $user = $userdb->getById($freelancer->getUserId());
+        $freelancer = $freedb->getById($id);
+        $user = $userdb->getById($freelancer->getUserId());
+      
       $datetime = $user->getCreateDate();
 
       $date = new DateTime($datetime);
@@ -61,11 +62,12 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10 prof">
-                <div class="d-flex flex-row mt-3 px-4">
+                <div class="d-flex align-items-center mt-3 px-4">
                     <a href=""><img src="<?php echo Helper::get_url('user/public/img/')  . $freelancer->getImg() ?>" alt="aaaa" height="60px" class="avt"></a>
                     <div class="d-flex flex-column">
-                        <h5 class="name"> &ensp; <?php echo $freelancer->getName() ?></h5>
+                        <h5 class="name "> &ensp; <?php echo $freelancer->getName() ?></h5>
                     </div>
+                    <a href="<?php echo Helper::get_url('user/model/bl/logout_process.php') ?>" class="ms-auto text-danger"><h4  class="bi bi-box-arrow-right"> Đăng xuất</h4></a>
                 </div>
             </div>
             <div class="col-1"></div>
@@ -74,6 +76,8 @@
     <div class="container" id="pro">
         <div class="row">
             <div class="col-1"></div>
+
+
             <div class="col-4 profi1">
                 <ul class="info">
                     <li><i class="bi bi-calendar-fill"></i> <?php echo 'Tham gia từ ngày ' . $day . ' tháng ' . $month . ' năm ' . $year ?></li>
@@ -100,6 +104,11 @@
                   ?>
                 </ul>
                 <hr>
+
+                <?php
+                  if ($totalRate>0) {    
+                ?>
+
                 <div class="review-container">
                     <div class="stars text-center fs-3">
                       <span><?php echo $ratefreedb->getAvgRate($id) ?></span>
@@ -142,6 +151,8 @@
                       <span><?php echo $rate1 ?></span>
                     </div>
                 </div>
+
+                
                 <div class="review-detail">
                   <b>Đánh giá chi tiết</b>
                   <?php
@@ -174,7 +185,13 @@
                   ?>
                   
                 </div>
+                <?php
+                   }else{
+                    echo "<h4>Chưa có đánh giá nào để hiển thị !</h4>";
+                   }
+                ?>
             </div>
+
             <div class="col-6 mx-3">
               <div class="profi2">
                 <?php
@@ -325,5 +342,5 @@
         </div>
     </div>
 </body>
-<script src="<?php echo Helper::get_url('user/public/js/')  . 'profile.js' ?>"></script>
+<script src="<?php echo Helper::get_url('user/public/js/profile.js') ?>"></script>
 </html>

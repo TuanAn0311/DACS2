@@ -11,7 +11,7 @@
 <body id="background-image-div">
     <div class="container text-center p-3" id="register">
         <div class="row">
-            <div class="col-3"></div>
+            <div class="col-3"></div> 
             <div class="col-6">
                 <form action="" method="post"  id="registerForm">
                     <div class="row wel">

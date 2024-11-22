@@ -39,7 +39,7 @@ class Database
     public static function db_execute($sql = '', $params = [])
     {
         if (!is_null(self::$con)) {
-            $result = self::$con->prepare($sql);
+            $result = self::$con->prepare($sql); 
             $result->execute($params);
             if ($result->rowCount() > 0) {
                 $result->closeCursor();

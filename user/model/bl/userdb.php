@@ -29,7 +29,7 @@ class UserDatabase extends Database{
         $hashed_password = password_hash($user->getPass(), PASSWORD_DEFAULT);
         $params = [
             "userName" => $user->getUserName(),
-            "pass" => $hashed_password,
+            "pass" => $hashed_password, 
             "email" => $user->getEmail(),
             "role" => $user->getRole(),
         ];

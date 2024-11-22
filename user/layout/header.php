@@ -19,7 +19,7 @@
             <div class="col-md-3">
                 <form onsubmit="searchRedirect(event)">
                     <div class="input-group">
-                        <input type="text" id="textt" style="width: 85%;" placeholder="Tìm Kiếm!">
+                        <input type="text" id="textt" style="width:80%;" placeholder="Tìm Kiếm!">
                         <button type="submit" id="search" >
                             <i class="bi bi-search" style="font-size: 18px;"></i>
                         </button>
@@ -42,12 +42,42 @@
             </div>
             <div class="col-md-1 mt-1">
                 <a href=""><i class="bi bi-bell-fill"></i> </a>&ensp; &ensp;
-                <a href=""><i class="bi bi-briefcase-fill"></i></a>
+                <a href=""><i class="bi bi-briefcase"></i></a>
             </div>
+            
             <div class="col-md-2 log">
-                <a href="<?php echo Helper::get_url('Home/login') ?>">Đăng nhập</a>
-                <div class="line"></div>
-                <a href="<?php echo "?lay=register" ?>">Đăng kí</a>
+                <?php
+                if (!empty($_SESSION['ma_nguoi_dung'])) {
+                    $id = $_SESSION['ma_nguoi_dung'];
+                    if ($_SESSION['vai_tro'] === 'quan_ly') {
+                        $com = new Company();
+                        $comdb = new CompanyDatabase();
+                        $com = $comdb->getByIdUser($id);
+                        $_SESSION['id_profile'] = $com->getComId();
+                        $anh = $com->getImg();
+                    } else {
+                        $free = new Freelancer();
+                        $freedb = new FreelancerDatabase();
+                        $free = $freedb->getByIdUser($id);
+                        $_SESSION['id_profile'] = $free->getFreeId();
+                        $anh = $free->getImg();
+                    }
+                    ?>
+                    
+                    <a href="<?php echo Helper::get_url('Home/Profile/'.$_SESSION['id_profile']) ?>" class="d-flex justify-content-center align-items-center position-absolute top-0">
+                        <img width="20%" src="<?php echo Helper::get_url('user/public/img/'.$anh) ?>" alt="">&#160
+                        <span><?php echo $_SESSION['ten_dang_nhap'] ?></span>
+                    </a>
+                    
+                <?php 
+                }
+                else{ 
+                    ?>
+                    <a href="<?php echo Helper::get_url('Home/Login') ?>">Đăng nhập</a>
+                    <div class="line"></div>
+                    <a href="<?php echo Helper::get_url('Home/action/register') ?>">Đăng kí</a>
+                <?php }
+                ?>
             </div>
         </div>
     </div>

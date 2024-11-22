@@ -1,7 +1,8 @@
 
 <head>
     <title>danh sách công việc</title>
-    <link rel="stylesheet" href="/live/mvc/views/resource/css/job.css">
+    <link rel="stylesheet" href="<?php echo Helper::get_url('./user/public/css/job.css') ?>">
+
     <style>
     a{
     text-decoration: none;
@@ -9,12 +10,12 @@
     }
     </style>
 </head>
-<body>
-    <div class="container">
+<body class="bg-secondary">
+    <div class="container ">
         <div class="row">
             <div class="col-3"></div>
-            <div class="col-7"><h3>Tìm kiếm công việc phù hợp với bạn ở đây !</h3></div>
-            <div class="col-2"><h5><a href="<?php echo Helper::get_url("Home/action/see-more-job") ?>">Xem thêm</a><i class="bi bi-arrow-right"></i></h5></div>
+            <div class="col-6 text-light text-center"><h3>Danh Sách các bài đăng nổi bật !</h3></div>
+            <div class="col-3"><h5><a class="text-warning" href="<?php echo Helper::get_url("Home/action/see-more-job") ?>">Xem thêm <i class="bi bi-arrow-right text-light"></i></a> </h5></div>
         </div>
     </div>
     

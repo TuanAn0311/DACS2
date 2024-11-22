@@ -7,7 +7,7 @@ class Freelancer{
     } 
 
     function getUserId(){
-        return $this->userId;
+        return $this->userId; 
     }
     function getName(){
         return $this->name;

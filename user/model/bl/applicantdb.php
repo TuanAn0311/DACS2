@@ -1,6 +1,32 @@
 <?php
 class ApplicantDatabase extends Database{
 
+    public static function addAppli($ma_nguoi_tim_viec, $maCV, $trangThai, $ngayUT, $moTa, $giaChao, $soNgayHoanThanh){
+    // Correct SQL query with parameterized values
+    $sql = "INSERT INTO ung_tuyen (ma_nguoi_tim_viec, ma_cong_viec, trang_thai_ung_tuyen, ngay_ung_tuyen, mo_ta, chao_gia, so_ngay_hoan_thanh)
+            VALUES (:ma_nguoi_tim_viec, :ma_cong_viec, :trang_thai_ung_tuyen, :ngay_ung_tuyen, :mo_ta, :chao_gia, :so_ngay_hoan_thanh)";
+    
+    // Parameters to bind to the query
+    $params = [
+        ":ma_nguoi_tim_viec" => $ma_nguoi_tim_viec,
+        ":ma_cong_viec" => $maCV,
+        ":trang_thai_ung_tuyen" => $trangThai,
+        ":ngay_ung_tuyen" => $ngayUT,
+        ":mo_ta" => $moTa,
+        ":chao_gia" => $giaChao,
+        ":so_ngay_hoan_thanh" => $soNgayHoanThanh
+    ];
+
+    // Execute the query via db_execute
+    if (self::db_execute($sql, $params)) {
+        return true; // Successfully inserted the user
+    } else {
+        return false; // Failed to insert the user
+    }
+}
+
+    
+
     function countByFreeId($id){
         $sql = "SELECT count(*) as total FROM ung_tuyen WHERE ma_nguoi_tim_viec = :id and trang_thai_ung_tuyen = 'Hoàn thành'";
         $params = [

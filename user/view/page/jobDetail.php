@@ -1,10 +1,13 @@
 <head>
-    <link rel="stylesheet" href="/live/mvc/views/resource/css/jobDetail.css">
+    <link rel="stylesheet" href="<?php echo Helper::get_url('user/public/css/jobDetail.css') ?>">
+
     <style>
         /* Styles for the form overlay */
         
     </style>
 </head>
+<body>
+    
 <?php
     
 
@@ -30,6 +33,14 @@
     
     $luong = number_format($job->getMucLuong(), 0, ',', '.');
 
+    $_SESSION['ma_cong_viec'] = $data['macv'];
+
+
+    if (isset($_SESSION['massge'])) {
+        echo "<script> alert(".$_SESSION['massge'].")</script>";
+        unset($_SESSION['massge']);
+    }
+    
 ?>
     <div class="container">
         <div class="row">
@@ -49,7 +60,7 @@
 
                         <div class="thongTinKhachHang">
                             <p>Thông tin khách hàng</p>
-                            <img src="/live/mvc/views/resource/pictures/<?php echo $com->getImg()  ?>" width="5%" alt=""> &#160
+                            <img src="/DACS2/user/public/img/<?php echo $com->getImg()  ?>" width="5%" alt=""> &#160
                             <span class="tenKhachHang"><?php echo $user->getUserName() ?></span>
                         </div>
                         <div class="kiNang">
@@ -102,7 +113,7 @@
             <div class="container" id="danh_sach_chao_gia">
                 <div class="row" id="header_gui_chao_gia">
                     <div class="col-9">
-                        <img src="/live/mvc/views/resource/pictures/<?php echo $free->getImg() ?>" width="5%" style="border-radius:50%; object-fit: cover;" alt="">
+                        <img src="/DACS2/user/public/img/<?php echo $free->getImg() ?>" width="5%" style="border-radius:50%; object-fit: cover;" alt="">
                         <span id="ten">&#160<?php echo $free->getName() ?></span>
                     </div>
                     <div class="col-3">
@@ -132,41 +143,6 @@
         </div>
     </div>
 
-    <!-- Overlay Form -->
- <div class="overlay" id="formOverlay">
-        <div class="form-container">
-            <span class="close-button" onclick="closeForm()">×</span>
-            <h2>Chào Giá Dự Án</h2>
-            <form id="chaoGiaForm" action="/live/mvc/models/xuLyUngTuyen.php" method="POST">
-                <div class="container">
-                   <div class="row">
-                        <div class="col-6"><label for="proposalAmount">Giá chào</label></div>
-                        <div class="col-6"><input type="number" id="proposalAmount" name="GiaChao" required><br></div>
-                   </div>
-                </div>
-                <div class="container">
-                   <div class="row">
-                        <div class="col-6"><label for="completionTime">Thời gian hoàn thành (ngày)</label></div>
-                        <div class="col-6"><input type="number" id="completionTime" name="soNgayHoanThanh" required><br></div>     
-                   </div>
-                </div>
 
-                <div class="container">
-                   <div class="row">
-                        <div class="col-4"><label for="proposalMessage">Lời nhắn</label><br></div>
-                        <div class="col-8"><textarea class="p-4" id="proposalMessage" name="moTa" rows="4" required></textarea><br></div>     
-                   </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-5"><button style="width:100%" type="submit">Gửi chào giá</button></div>
-                        <div class="col-3"></div>
-                        
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-<script src="/live/mvc/views/resource/js/jobDetail.js"></script>
+</body>
+<script src="<?php echo Helper::get_url("user/public/js/jobDetail.js") ?>"></script>

@@ -25,15 +25,6 @@ include_once './user/model/bl/companydb.php';
 include_once './user/model/bl/job.php';
 include_once './user/model/bl/jobdb.php';
 
-
 $db = new Database();
 
 ?>
-<style>
-    .container{
-        margin:10px 0 10px 0;
-    }
-    a{
-        text-decoration: none;
-    }
-</style>

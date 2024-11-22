@@ -3,7 +3,6 @@ class Home extends Controller{
  
     function Login(){
         $login = $this->view("login",['']);
-        $CV = $this->model("postdb");
     }
 
     function ajax(){
@@ -11,10 +10,33 @@ class Home extends Controller{
     }
 
     function jobDetail($macv) {
-        include_once('./user/layout/header.php');
-        $jobDetail = $this->view("jobDetail",['macv'=>$macv]);
-        include_once('./user/layout/footer.php');
+        if (!empty($_SESSION['ma_nguoi_dung'])) {
 
+            include_once('./user/layout/header.php');
+            $jobDetail = $this->view("jobDetail",['macv'=>$macv]);
+            include_once('./user/layout/footer.php');
+        
+        } else {
+            $login = $this->view("login",['']);
+        }
+
+    }
+
+    function Profile($id) {
+        if (!empty($_SESSION['ma_nguoi_dung'])) {
+
+            include_once('./user/layout/header.php');
+            if ($_SESSION['vai_tro']==='nguoi_tim_viec') {
+                $profile = $this->view("profile_freelancer",['id_profile'=>$id]);
+            } elseif($_SESSION['vai_tro']==='nha_tuyen_dung') {
+                $profile = $this->view("profile_company",['id_profile'=>$id]);
+            }
+        
+            include_once('./user/layout/footer.php');
+        } else {
+            $login = $this->view("login",['']);
+
+        }
     }
     
     function Register(){
@@ -47,6 +69,7 @@ class Home extends Controller{
                     break;
                 case "see-more-job":
                     echo "<hr>";
+                    echo "<h2 class='text-light text-center'>Tìm kiếm công việc phù hợp với bạn ở đây !</h2>";
                     include_once './user/view/page/seeMoreJob.php';
                     break;
                 default:

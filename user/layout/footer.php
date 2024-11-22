@@ -29,10 +29,10 @@
                     <p class="foot bi bi-telephone-fill gray"> <b>Phone number:</b> 0123456789</p>
                     <p class="foot bi bi-geo-alt-fill gray"> <b>address:</b> 470 Đ. Trần Đại Nghĩa, Hoà Hải, Ngũ Hành Sơn, Đà Nẵng 550000</p>
                     <a href="https://www.facebook.com/hungg.ytp.1" target="_blank" style="display: inline-block;">
-                    <p class="bi bi-facebook foot"></p>
+                        <p class="bi bi-facebook foot"></p>
                     </a> &ensp;
                     <a href="mailto:hung111222m@gmail.com" style="display: inline-block;">
-                        <p class="foot bi bi-envelope-fill foot"></p>
+                        <p class=" bi bi-envelope-fill foot"></p>
                     </a> &ensp;
                     <a href="tel:+84397413697" style="display: inline-block;">
                         <p class="bi bi-telephone-fill foot"></p>
