@@ -19,10 +19,10 @@ if($company->getImg()==''){
     <title>Company Profile</title>
 </head>
 <body>
-<div class="container my-4">
-    <div class="row">
+<div class="container my-4 ">
+    <div class="row ">
         <div class="col-1"></div>
-        <div class="col-10 border border-muted p-5">
+        <div class="col-10 text-light border-muted p-5 bg-dark rounded">
             <div class="text-center mb-4">
                 <img src="<?php echo $img ?>" alt="Company Logo" class="rounded-circle mb-3" height="150px;" width="150px;">
                 <h1 class="fw-bold"><?php echo $company->getName() ?></h1>
@@ -61,7 +61,7 @@ if($company->getImg()==''){
                 ?>
             </div>
         </div>
-        <div class="col-1"></div>
+        <div class="col-1"><a href="<?php echo Helper::get_url('user/model/bl/logout_process.php') ?>" class="ms-auto text-light"><h4  class="bi bi-box-arrow-right"> Đăng xuất</h4></a></div>
     </div>
 </div>
 </body>

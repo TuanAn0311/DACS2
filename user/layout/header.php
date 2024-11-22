@@ -66,9 +66,10 @@
                     ?>
                     
                     <a href="<?php echo Helper::get_url('Home/Profile/'.$_SESSION['id_profile']) ?>" class="d-flex justify-content-center align-items-center position-absolute top-0">
-                        <img width="20%" src="<?php echo Helper::get_url('user/public/img/'.$anh) ?>" alt="">&#160
+                        <img id="avatar" width="20%" src="<?php echo Helper::get_url('user/public/img/'.$anh) ?>" alt="">&#160
                         <span><?php echo $_SESSION['ten_dang_nhap'] ?></span>
                     </a>
+                    <a href=""></a>
                     
                 <?php 
                 }
