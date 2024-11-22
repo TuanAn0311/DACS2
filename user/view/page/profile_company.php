@@ -1,6 +1,6 @@
 <?php
-$id = $data['id_profile'];
-echo $id;
+$id = $_SESSION['id_profile'];
+
 $companydb = new CompanyDatabase();
 $company = $companydb->getById('11');
 $jobdb = new JobDatabase();
