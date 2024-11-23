@@ -11,7 +11,7 @@
 <?php
     
 
-    $_SESSION['ma_nguoi_tim_viec'] = 3;// khi login vao thi luu vao session , lay ma nguoi tim viec tu ma nguoi dung
+    $_SESSION['ma_nguoi_tim_viec'] = $_SESSION['id_profile'];// khi login vao thi luu vao session , lay ma nguoi tim viec tu ma nguoi dung
     
     $job = new Job();
     $jobdb = new JobDatabase();

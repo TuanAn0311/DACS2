@@ -19,7 +19,6 @@ class Home extends Controller{
         } else {
             $login = $this->view("login",['']);
         }
-
     }
 
     function Profile($id) {
