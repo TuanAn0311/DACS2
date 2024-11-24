@@ -162,6 +162,41 @@ class JobDatabase extends Database{
         }
     }
     
-         
+    public function updateJob($job) {
+        $sql = "UPDATE cong_viec 
+                SET 
+                    tieu_de_cong_viec = :tieu_de_cong_viec, 
+                    mo_ta_cong_viec = :mo_ta_cong_viec, 
+                    muc_luong = :muc_luong, 
+                    ma_chuyen_nganh = :ma_chuyen_nganh, 
+                    trang_thai = :trang_thai, 
+                    ky_nang_bat_buoc = :ky_nang_bat_buoc
+                WHERE ma_cong_viec = :ma_cong_viec";
+    
+        $params = [
+            "tieu_de_cong_viec" => $job->getTieuDeCongViec(),
+            "mo_ta_cong_viec" => $job->getMoTaCongViec(),
+            "muc_luong" => $job->getMucLuong(),
+            "ma_chuyen_nganh" => $job->getMaChuyenNganh(),
+            "trang_thai" => $job->getTrangThai(),
+            "ky_nang_bat_buoc" => $job->getKyNangBatBuoc(),
+            "ma_cong_viec" => $job->getMaCongViec(),
+        ];
+    
+        // Thực hiện cập nhật
+        $result = self::db_execute($sql, $params);
+        
+        // Nếu thành công, chuyển hướng lại trang
+        if ($result) {
+            // Thay thế "your_page.php" bằng URL của trang bạn muốn chuyển hướng tới
+            echo "<script>alert('Cập nhật thông tin thành công!'); </script>"; 
+            header("Location: http://localhost/DACS2/Home/jobDetail/".$job->getMaCongViec());
+            exit(); // Dừng việc thực thi mã sau khi chuyển hướng
+        } else {
+            return false; // Nếu không thành công, trả về false
+        }
+    }
+    
+       
 }
 ?>

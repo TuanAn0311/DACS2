@@ -2,7 +2,7 @@
 $id = $_SESSION['id_profile'];
 
 $companydb = new CompanyDatabase();
-$company = $companydb->getById('11');
+$company = $companydb->getById($id);
 $jobdb = new JobDatabase();
 $listJob = $jobdb->GET_CVLimitByCompanyId($id);
 
@@ -32,7 +32,7 @@ if($company->getImg()==''){
                 <p class="mb-4 fs-5">
                     <strong>Mô tả công ty:</strong> <?php echo $company->getDes() ?>
                 </p> <hr>
-                <h2 class="h5 mb-3">Danh sách các dự án:</h2>
+                <h2 class="h5 mb-3">Danh sách các dự án cá nhân:</h2>
                 <?php
                 if (!empty($listJob)) {
                     foreach ($listJob as $job){
@@ -46,7 +46,7 @@ if($company->getImg()==''){
                                         <?php echo $job->getMoTaCongViec() ?>
                                     </p>
                                     <h6 class="card-subtitle mb-3 text-success">Mức lương: <?php echo $job->getMucLuong() . " VND" ?></h6>
-                                    <a href="#" class="btn btn-success">Xem chi tiết</a>
+                                    <a href="http://localhost/DACS2/Home/jobDetail/<?php echo $job->getMaCongViec() ?>" id="changeContent" class="chaoGia btn btn-success">Xem Chi Tiết</a>
                                 </div>
                             </div>
                         </li>

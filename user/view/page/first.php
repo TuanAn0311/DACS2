@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $jobdb = new JobDatabase();
     $jobdb->addJob($job);
-    echo "<script>alert(Đã Thêm Công Việc)</script>";
+    echo "<script>alert('Đã Thêm Công Việc')</script>";
 }
 
 

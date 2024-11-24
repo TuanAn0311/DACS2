@@ -113,32 +113,96 @@ button {
   align-items: center;
 }
 
+
 .overlay .form-container {
-  background: rgb(40, 40, 40);
+  background: rgb(50, 50, 50); /* Màu nền form tối hơn nhưng vẫn nổi bật */
   color: whitesmoke;
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
+  padding: 30px; /* Tăng padding bên trong form */
+  border-radius: 12px; /* Bo góc mềm mại hơn */
+  width: 60%; /* Làm form lớn hơn */
+  max-width: 600px; /* Giới hạn chiều rộng tối đa */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Hiệu ứng đổ bóng */
+  transition: all 0.3s ease; /* Hiệu ứng chuyển đổi khi mở form */
 }
 
-.overlay input, textarea , button{
+.overlay input,
+.overlay textarea,
+.overlay select,
+.overlay button {
+  width: 100%; /* Độ rộng 100% để phù hợp mọi kích thước */
+  padding: 10px; /* Tăng padding trong input */
+  margin-bottom: 15px; /* Khoảng cách giữa các phần tử */
   border-radius: 5px;
+  font-size: 1rem; /* Tăng kích thước font */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Viền nhẹ */
+  background-color: #333; /* Nền tối hơn */
+  color: whitesmoke;
 }
 
-.overlay button{
-  color: black;
+.overlay input:focus,
+.overlay textarea:focus,
+.overlay select:focus {
+  outline: none;
+  border-color: rgb(255, 255, 0); /* Đổi màu viền khi focus */
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.7); /* Hiệu ứng ánh sáng */
 }
+
+.overlay button {
+  background-color: rgb(255, 255, 0); /* Màu vàng nổi bật */
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hiệu ứng hover */
+}
+
+.overlay button:hover {
+  background-color: yellow; /* Vàng đậm hơn khi hover */
+  transform: scale(1.05); /* Phóng to nhẹ */
+}
+
 .close-button {
   float: right;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: whitesmoke;
 }
+
+.close-button:hover {
+  color: rgb(255, 255, 0); /* Màu vàng khi hover */
+}
+
+/* Điều chỉnh các hàng trong form */
+#chaoGiaForm .container,
+#formUpdateForm .container {
+  padding: 5px 0;
+}
+
+#chaoGiaForm .container .row,
+#formUpdateForm .container .row {
+  align-items: center; /* Canh giữa các thành phần theo chiều dọc */
+}
+
+#chaoGiaForm label,
+#formUpdateForm label {
+  font-size: 1rem; /* Tăng kích thước chữ cho nhãn */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#chaoGiaForm input,
+#chaoGiaForm textarea,
+#formUpdateForm input,
+#formUpdateForm textarea {
+  font-size: 1rem; /* Kích thước chữ lớn hơn */
+}
+
 #chaoGiaForm #proposalAmount, #completionTime {
   width: 100%;
 }
 
 #chaoGiaForm .container{
-  padding: 10px 0 10px 0;
+  padding: 5px 0 5px 0;
 }
