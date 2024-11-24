@@ -242,7 +242,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6"><label for="muc_luong">Mức lương:</label></div>
-                        <div class="col-6"><input type="number" style="width:100%" id="muc_luong" name="muc_luong" value="<?php echo $job->getMucLuong(); ?>" step="0.001" required></div>
+                        <div class="col-6"><input type="number" style="width:100%" id="muc_luong" name="muc_luong" value="<?php echo number_format($job->getMucLuong(), 0, ',', '.'); ?>" step="0.001" required></div>
                     </div>
                 </div>
 
