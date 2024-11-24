@@ -116,7 +116,7 @@
                             <tbody>
                                 <tr>
                                     <td>Ngân sách</td>
-                                    <td><?php echo $luong ?>.000 VNĐ</td>
+                                    <td><?php echo number_format($job->getMucLuong(), 0, ',', '.'); ?> VNĐ</td>
                                 </tr>
                                 <tr>
                                     <td>Chào giá</td>
