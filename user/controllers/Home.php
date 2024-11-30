@@ -37,7 +37,14 @@ class Home extends Controller{
 
         }
     }
-    
+
+    function Delete($id_job){
+        $jobdb = new JobDatabase();
+        $jobdb->delete($id_job);
+        header("Location: http://localhost/DACS2/Home/Profile/".$_SESSION['ma_nguoi_dung']);
+        // $this->Profile($_SESSION['ma_nguoi_dung']);
+    }
+
     function Register(){
         $login = $this->view("register",[]);
     }

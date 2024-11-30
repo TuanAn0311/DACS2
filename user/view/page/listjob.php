@@ -30,7 +30,7 @@
         foreach ($listJob as $job) {
             $speName = $spedb->getNameById($job->getMaChuyenNganh());
             $appCount = $appdb->countForJob($job->getMaCongViec());
-            $salary = number_format($job->getMucLuong(), 0, ',', '.');
+            $salary = number_format($job->getMucLuong(), 0, ',', ',');
         ?>
         <div class="container">
             <div class="row" id="thongTinSn">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-4 right">
                     <span style="color: white">Trạng thái: <?php echo $job->getTrangThai() ?></span>
-                    <div class="Gia"><?php echo $salary ?>.000 VNĐ</div>
+                    <div class="Gia"><?php echo $salary ?> VNĐ</div>
                     <a href="http://localhost/DACS2/Home/jobDetail/<?php echo $job->getMaCongViec() ?>" id="changeContent" class="chaoGia">Chào giá cho dự án</a>
                 </div>
             </div>

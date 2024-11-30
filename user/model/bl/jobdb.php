@@ -197,6 +197,18 @@ class JobDatabase extends Database{
         }
     }
     
+    function delete($id) {
+        $sql = "DELETE FROM cong_viec WHERE ma_cong_viec= :ma_cong_viec";
+        $params = [
+            "ma_cong_viec" => $id
+        ];
+    
+        if (self::db_execute($sql, $params)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
        
 }
 ?>

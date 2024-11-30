@@ -47,6 +47,7 @@ if($company->getImg()==''){
                                     </p>
                                     <h6 class="card-subtitle mb-3 text-success">Mức lương: <?php echo $job->getMucLuong() . " VND" ?></h6>
                                     <a href="http://localhost/DACS2/Home/jobDetail/<?php echo $job->getMaCongViec() ?>" id="changeContent" class="chaoGia btn btn-success">Xem Chi Tiết</a>
+                                    <a href="http://localhost/DACS2/Home/Delete/<?php echo $job->getMaCongViec() ?>" id="changeContent" class="chaoGia btn btn-success bg-danger">Xoá</a>
                                 </div>
                             </div>
                         </li>
